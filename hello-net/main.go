@@ -8,7 +8,7 @@ import (
 
 func main() {
 	fmt.Println("Hello World net")
-	resp, err := http.Get("www.google.com")
+	resp, err := http.Get("google.com")
 	if err != nil {
 		fmt.Println(err)
 	}
