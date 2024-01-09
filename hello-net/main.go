@@ -9,12 +9,12 @@ import (
 func main() {
 	fmt.Println("Hello World net")
 	resp, err := http.Get("www.google.com")
-	if err == nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	b, err := ioutil.ReadAll(resp.Body)
 	resp.Body.Close()
-	if err == nil {
+	if err != nil {
 		fmt.Println(err)
 	}
 	fmt.Println(b)
