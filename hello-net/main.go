@@ -20,8 +20,8 @@ func main() {
 		fmt.Println("2")
 		os.Exit(1)
 	}
-	for _, data := range b[1:10] {
+	for _, data := range b[1:] {
 
-		fmt.Printf("%b", data)
+		fmt.Printf("%s", string(data))
 	}
 }
