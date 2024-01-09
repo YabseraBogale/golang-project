@@ -12,4 +12,5 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(resp.Body)
+	resp.Body.Close()
 }
