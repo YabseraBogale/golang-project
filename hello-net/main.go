@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -12,10 +12,12 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	b, err := ioutil.ReadAll(resp.Body)
+	b, err := io.ReadAll(resp.Body)
 	resp.Body.Close()
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(b)
+	for _, data := range b[1:] {
+		fmt.Println(data)
+	}
 }
