@@ -3,30 +3,19 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
-	"io"
 	"os"
 )
 
 func main() {
-
 	file, err := os.Open("./IRIS.csv")
 	if err != nil {
-		fmt.Println("openning file")
-	}
 
-	data := csv.NewReader(file)
-	for {
-		d, err := data.Read()
-		if err == io.EOF {
-			fmt.Println("End of file")
-			break
-		}
-		if err != nil {
-			fmt.Println("Err from For loop")
-		}
-		for i := range d {
-			fmt.Println(d[i])
-		}
 	}
+	data := csv.NewReader(file)
+	df, err := data.ReadAll()
+	if err != nil {
+		os.Exit(1)
+	}
+	fmt.Println(df)
 
 }
