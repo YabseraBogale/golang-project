@@ -16,7 +16,7 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	for i:=df{
+	for i := range df {
 		fmt.Println(df[i])
 	}
 
