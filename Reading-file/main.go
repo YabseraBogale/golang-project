@@ -16,6 +16,8 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	fmt.Println(df)
+	for i:=df{
+		fmt.Println(df[i])
+	}
 
 }
