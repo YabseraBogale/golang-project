@@ -9,7 +9,7 @@ import (
 // ...
 func main() {
 
-	db, err := sql.Open("mysql", "yabsera:Deathandlife13579@/app")
+	
 	if err != nil {
 		panic(err)
 	} else if err = db.Ping(); err != nil {
