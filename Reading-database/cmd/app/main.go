@@ -16,6 +16,5 @@ func main() {
 		panic(err)
 	}
 	// See "Important settings" section.
-
-	db.Exec("CREATE TABLE IF NOT EXISTS mytable (id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY, some_text TEXT NOT NULL)")
+	db.Exec("create table user( name varchar(20), password varchar(20))")
 }
