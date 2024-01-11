@@ -16,8 +16,7 @@ func main() {
 	if err != nil {
 		os.Exit(1)
 	}
-	for i := range df[1:] {
-		fmt.Println(df[i])
-	}
+	fmt.Println("Reading from csv is easy now try database")
+	fmt.Println(df[10][0])
 
 }
