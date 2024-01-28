@@ -2,16 +2,15 @@ package main
 
 import (
 	"os"
+	"path"
+	"strings"
 )
 
 func main() {
-	file, err := os.Open("./hello")
-	if err != nil {
-		println("Does n't exist")
-	} else {
-		println(file.Name())
-	}
-
+	name := path.Dir(".")
+	println("name is" + name)
+	nn := strings.Split(name, "/")
+	println(nn)
 }
 
 func look(name string) bool {
