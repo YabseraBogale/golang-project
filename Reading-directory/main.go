@@ -2,15 +2,23 @@ package main
 
 import (
 	"os"
-	"path"
 	"strings"
 )
 
 func main() {
-	name := path.Dir(".")
-	println("name is" + name)
-	nn := strings.Split(name, "/")
-	println(nn)
+	nn, err := os.Getwd()
+	if err != nil {
+
+	} else {
+		result := strings.Split(nn, "/")
+		println(len(result))
+		for _, i := range result {
+			if i != "" {
+				println(i)
+			}
+
+		}
+	}
 }
 
 func look(name string) bool {
