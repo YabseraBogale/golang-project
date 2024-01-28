@@ -13,3 +13,16 @@ func main() {
 	}
 
 }
+
+func look(name string) bool {
+
+	file, err := os.Open(name)
+	if err != nil {
+		name = "../" + name
+		again := look(name)
+		return again
+	} else {
+		println("File exists" + file.Name())
+		return true
+	}
+}
