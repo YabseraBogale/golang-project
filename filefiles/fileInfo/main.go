@@ -15,6 +15,6 @@ func main() {
 	println("File Name:", fileinfo.Name())
 	println("File Size: ", fileinfo.Size())
 	println("File Time", fileinfo.ModTime().String())
-	fmt.Printf("FIle Sys: %T\n", fileinfo.Sys())
+	fmt.Printf("FIle Sys: %v\n", fileinfo.Sys())
 
 }
