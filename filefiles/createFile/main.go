@@ -12,12 +12,11 @@ func main() {
 	}
 	log.Println(f)
 	f.Close()
-	fileInfo, err := os.Stat("test.txt")
+	fs, err := os.OpenFile("log.txt", os.O_WRONLY, 0666)
 	if err != nil {
-		if os.IsNotExist(err) {
-			log.Fatal("File does not exist.")
+		if os.IsPermission(err) {
+			println("Permmsion denided")
 		}
 	}
-	log.Println("File does exist. File information:")
-	log.Println(fileInfo)
+	fs.Close()
 }
