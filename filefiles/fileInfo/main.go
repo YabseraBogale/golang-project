@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 )
@@ -13,6 +14,7 @@ func main() {
 	}
 	println("File Name:", fileinfo.Name())
 	println("File Size: ", fileinfo.Size())
-	println("File Time", fileinfo.ModTime())
+	println("File Time", fileinfo.ModTime().String())
+	fmt.Printf("FIle Sys: %T\n", fileinfo.Sys())
 
 }
