@@ -16,5 +16,5 @@ func main() {
 	println("File Size: ", fileinfo.Size())
 	println("File Time", fileinfo.ModTime().String())
 	fmt.Printf("FIle Sys: %v\n", fileinfo.Sys())
-
+	println(os.Geteuid())
 }
