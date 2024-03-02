@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"time"
 	"log"
 	"os"
 )
@@ -15,6 +15,11 @@ func main() {
 	println("File Name:", fileinfo.Name())
 	println("File Size: ", fileinfo.Size())
 	println("File Time", fileinfo.ModTime().String())
-	fmt.Printf("FIle Sys: %v\n", fileinfo.Sys())
-	println(os.Geteuid())
+	twoDaysFromNow := time.Now().Add(48 * time.Hour)
+	lastAccessTime := twoDaysFromNow
+	lastModifyTime := twoDaysFromNow
+	err=os.Chtimes("../createFile/log.txt",lastAccessTime,lastModifyTime)
+	if err!=nil{
+		log.Fatal(err)
+	}
 }
