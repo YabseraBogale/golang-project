@@ -12,7 +12,7 @@ func main(){
 			if err!=nil{
 
 			} else{
-				println(f.Name(),f.Size()/1000000.0)
+				println(f.Name(),float32(f.Size()/1000000))
 			}
 		}
 	}
