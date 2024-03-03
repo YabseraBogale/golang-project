@@ -1,27 +1,19 @@
 package main
 
-import (
-	"log"
-	"os"
-)
+import "os"
 
 func main(){
-	fileinfo,err:=os.ReadDir("../..")
+	fileinfo,err:=os.ReadDir(".")
 	if err!=nil{
-		log.Fatal(err)
-	}
-	for _,i:=range fileinfo{
-		if !i.IsDir(){
-			name:="../../"+i.Name()
-			t,err:=os.Stat(name)
+
+	} else{
+		for _,i:=range fileinfo{
+			f,err:=os.Stat(i.Name())
 			if err!=nil{
-				log.Fatal(err)
+
 			} else{
-				println(t.Size())
+				println(f.Name(),f.Size()/1000000.0)
 			}
-
-		} else{
-
 		}
 	}
 }
