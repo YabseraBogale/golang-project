@@ -1,6 +1,9 @@
 package main
 
-import "os"
+import (
+	"math"
+	"os"
+)
 
 func main(){
 	fileinfo,err:=os.ReadDir(".")
@@ -16,4 +19,6 @@ func main(){
 			}
 		}
 	}
+	num:=[]float64{1,23,5,-5,-7,8}
+	println(math.Max(num[0],num[2]))
 }
