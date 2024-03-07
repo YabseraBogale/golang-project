@@ -8,9 +8,9 @@ import (
 )
 
 var (
-	device	= "eno1"
+	device	= "wlp2s0"
 	snapshotLen int32 = 1024
-	promiscuous= false
+	promiscuous= true
 	err error
 	timeout = 30 * time.Second
 	handle *pcap.Handle
