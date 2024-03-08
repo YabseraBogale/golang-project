@@ -10,7 +10,7 @@ import (
 var (
 	device	= "wlp2s0"
 	snapshotLen int32 = 1024
-	promiscuous= true
+	promiscuous=true
 	err error
 	timeout = 30 * time.Second
 	handle *pcap.Handle
