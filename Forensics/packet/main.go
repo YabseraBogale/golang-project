@@ -27,6 +27,7 @@ func main() {
 	packetSource := gopacket.NewPacketSource(handle, handle.LinkType())
 	for packet := range packetSource.Packets() {
 		// Process packet here
-		fmt.Println(packet)
+		fmt.Println(packet.Data())
+
 	}
 }
