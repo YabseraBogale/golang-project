@@ -1,3 +1,4 @@
+// hey
 package main
 import (
 	"fmt"
