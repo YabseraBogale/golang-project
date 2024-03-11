@@ -1,7 +1,7 @@
 package main
 
 import (
-	"math"
+	"fmt"
 	"os"
 )
 
@@ -15,10 +15,9 @@ func main(){
 			if err!=nil{
 
 			} else{
-				println(f.Name(),float32(f.Size()/1000000))
+				fmt.Printf("Name: %s\nSize: %.2f\n",f.Name(),float32(f.Size()/1000000))
 			}
 		}
 	}
-	num:=[]float64{1,23,5,-5,-7,8}
-	println(math.Max(num[0],num[2]))
+
 }
