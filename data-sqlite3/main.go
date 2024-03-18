@@ -17,6 +17,7 @@ func main(){
 	defer data.Close()
 	db,_:=sql.Open("sqlite3",data.Name())
 	row,_:=db.Query("select * from Software;")
+	defer row.Close()
 	col,_:=row.Columns()
 	for _,i:=range col{
 		fmt.Println(i)
