@@ -15,7 +15,7 @@ func main(){
 		log.Println(err)
 	}
 	defer data.Close()
-	db,_:=sql.Open(data)
+	db,_:=sql.Open("sqlite3",data.Name())
 	row,_:=db.Query("select * from Software;")
 	fmt.Println(row)
 }
