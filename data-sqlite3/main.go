@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-
+	"time"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -19,5 +19,15 @@ func main(){
 	db,_:=sql.Open("sqlite3",data.Name())
 	row,_:=db.Query("select * from Software;")
 	defer row.Close()
-	fmt.Println(row.Next())
+	count:=0
+	for row.Next(){
+		var id int
+		var message string
+		var date time.Time
+		row.Scan(&id,&message,&date)
+		fmt.Println(id,message,date)
+		count+=1
+	}
+	fmt.Println("count is",count)
+
 }
