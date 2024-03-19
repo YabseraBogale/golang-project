@@ -16,7 +16,7 @@ func main(){
 	}
 	defer data.Close()
 	db,_:=sql.Open("sqlite3",data.Name())
-	row,_:=db.Query("select * from Software;")
+	row,_:=db.Query("select message from Software;")
 	defer row.Close()
 	for row.Next(){
 		var message string
