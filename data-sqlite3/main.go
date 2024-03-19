@@ -2,9 +2,9 @@ package main
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -21,8 +21,8 @@ func main(){
 	for row.Next(){
 		var message string
 		row.Scan(&message)
-		fmt.Println(message)
-
+		state:=strings.Contains(message,"nodejs")
+		println(state)
 	}
 
 
