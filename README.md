@@ -1,3 +1,3 @@
 # golang-project
 
-filefiles reading,opening,permission,trucating
+filefiles reading,opening,permission,trucating,databases
