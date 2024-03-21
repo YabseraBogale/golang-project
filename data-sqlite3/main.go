@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
@@ -36,13 +35,12 @@ func main() {
 			}
 		}
 	}
-	for key, _ := range stackmap {
-		query := "select  message from Software where id=" + strconv.Itoa(key) + ";"
-		row, _ := db.Query(query)
-		for row.Next() {
-			var message string
-			row.Scan(&message)
-			println(message)
+	for key, value := range stackmap {
+
+		print(key, " ")
+		for _, i := range value {
+			print(i, " ")
 		}
+		println()
 	}
 }
