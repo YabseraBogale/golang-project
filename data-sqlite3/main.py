@@ -4,6 +4,6 @@ connection=sqlite3.Connection("freelance-data-v2.db")
 
 pointer=connection.cursor()
 
-pointer.execute("select * from Software")
+pointer.execute("select message from Software where id=34400")
 result=pointer.fetchall()
-pprint(result[0][2])
+print(result[0][0])
