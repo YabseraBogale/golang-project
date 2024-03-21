@@ -9,21 +9,28 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
-func main(){
-	data,err:=os.Open("freelance-data-v2.db")
-	if err!=nil{
+func main() {
+
+	stack := []string{"django", "flask", "fastapi", "javascript", "php", "wordpress", "java", "spring boot",
+		"spring", "node", "front end", "frontend", "back end", "back end", "fullstack", "react", "vue", "c#", ".net", "dotnet",
+		"asp.net", "python", "bot", "andriod", "ios", "mobile", "mysql", "mongodb", "postgres", "flutter", "dart", "angularjs"}
+	println(stack[0])
+	data, err := os.Open("freelance-data-v2.db")
+	if err != nil {
 		log.Println(err)
 	}
 	defer data.Close()
-	db,_:=sql.Open("sqlite3",data.Name())
-	row,_:=db.Query("select message from Software;")
+	db, _ := sql.Open("sqlite3", data.Name())
+	row, _ := db.Query("select message from Software;")
 	defer row.Close()
-	for row.Next(){
+	for row.Next() {
 		var message string
 		row.Scan(&message)
-		state:=strings.Contains(message,"nodejs")
-		println(state)
+		message = strings.ToLower(message)
+		state := strings.Contains(message, "nodejs")
+		if state {
+			println(message)
+		}
 	}
-
 
 }
