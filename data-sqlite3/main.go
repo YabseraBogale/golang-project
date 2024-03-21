@@ -35,11 +35,7 @@ func main() {
 			}
 		}
 	}
-	for _, value := range stackmap {
-		for _, i := range value {
-			print(i, " ")
-		}
-		println()
-	}
+
+	println(len(stackmap))
 
 }
