@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-
+	stackmap := make(map[int][]string)
 	stack := []string{"django", "flask", "fastapi", "javascript", "php", "wordpress", "java", "spring boot",
 		"spring", "node", "front end", "frontend", "back end", "back end", "fullstack", "react", "vue", "c#", ".net", "dotnet",
 		"asp.net", "python", "bot", "andriod", "ios", "mobile", "mysql", "mongodb", "postgres", "flutter", "dart", "angularjs"}
@@ -21,16 +21,25 @@ func main() {
 	}
 	defer data.Close()
 	db, _ := sql.Open("sqlite3", data.Name())
-	row, _ := db.Query("select message from Software;")
+	row, _ := db.Query("select message,id from Software;")
 	defer row.Close()
 	for row.Next() {
 		var message string
-		row.Scan(&message)
+		var id int
+		row.Scan(&message, &id)
 		message = strings.ToLower(message)
-		state := strings.Contains(message, "nodejs")
-		if state {
-			println(message)
+		for _, i := range stack {
+			state := strings.Contains(message, i)
+			if state {
+				stackmap[id] = append(stackmap[id], i)
+			}
 		}
+	}
+	for _, value := range stackmap {
+		for _, i := range value {
+			print(i, " ")
+		}
+		println()
 	}
 
 }
