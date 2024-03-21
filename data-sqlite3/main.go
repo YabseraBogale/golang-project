@@ -14,7 +14,7 @@ func main() {
 	stack := []string{"django", "flask", "fastapi", "javascript", "php", "wordpress", "java", "spring boot",
 		"spring", "node", "front end", "frontend", "back end", "back end", "fullstack", "react", "vue", "c#", ".net", "dotnet",
 		"asp.net", "python", "bot", "andriod", "ios", "mobile", "mysql", "mongodb", "postgres", "flutter", "dart", "angularjs"}
-	println(stack[0])
+
 	data, err := os.Open("freelance-data-v2.db")
 	if err != nil {
 		log.Println(err)
@@ -35,7 +35,11 @@ func main() {
 			}
 		}
 	}
-
-	println(len(stackmap))
-
+	for key, value := range stackmap {
+		print(key, " ")
+		for _, i := range value {
+			print(i, " ")
+		}
+		println()
+	}
 }
