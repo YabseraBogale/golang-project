@@ -12,7 +12,7 @@ import (
 func main() {
 	stackmap := make(map[int][]string)
 	stack := []string{"django", "flask", "fastapi", "javascript", "php", "wordpress", "java", "spring boot",
-		"spring", "node", "front end", "frontend", "back end", "back end", "fullstack", "react", "vue", "c#", ".net", "dotnet",
+		"spring", "node", "front end", "frontend", "backend", "back end", "fullstack", "react", "vue", "c#", ".net", "dotnet",
 		"asp.net", "python", "bot", "andriod", "ios", "mobile", "mysql", "mongodb", "postgres", "flutter", "dart", "angularjs"}
 
 	data, err := os.Open("freelance-data-v2.db")
