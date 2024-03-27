@@ -1,5 +1,6 @@
 package main
 
+// NOW THAT I KNOW TO USE SQLITE WHAT TO DO ?
 import (
 	"database/sql"
 	"log"
