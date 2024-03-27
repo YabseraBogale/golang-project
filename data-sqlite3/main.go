@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+
 	stackmap := make(map[int][]string)
 	stack := []string{"django", "flask", "fastapi", "javascript", "php", "wordpress", "java ", "java,", "spring boot",
 		"spring", "node", "front end", "frontend", "backend", "back end", "fullstack", "react", "vue", "c#", ".net", "C++", "dotnet",
