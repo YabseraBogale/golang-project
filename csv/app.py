@@ -1,13 +1,8 @@
-from flask import Flask
+from requests import get
+from pprint import pprint
 
-app=Flask(__name__)
+url="https://raw.githubusercontent.com/YabseraBogale/cvelistV5/main/cves/2015/0xxx/CVE-2015-0018.json"
 
+data=get(url).json()
 
-@app.route('/')
-def index():
-    return "data"
-
-
-
-if __name__=="__main__":
-    app.run(debug=True)
+pprint(data)
