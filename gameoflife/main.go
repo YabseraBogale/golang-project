@@ -12,5 +12,10 @@ func main() {
 			grid[i][j] = rand.Intn(2)
 		}
 	}
+	census(grid)
+}
+
+func census(grid [6][6]int) {
 	fmt.Println(grid)
+	//return grid
 }
