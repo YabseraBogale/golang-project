@@ -6,18 +6,27 @@ import (
 )
 
 func main() {
-	grid := [6][6]int{}
+	grid := [6][6]string{}
+	buildworld(&grid)
+	// census(&grid)
+	fmt.Println(grid)
+}
+
+func buildworld(grid *[6][6]string) {
 	for i := range grid {
 		for j := range grid {
-			grid[i][j] = rand.Intn(2)
+			if rand.Intn(3) == 0 {
+				grid[i][j] = "0"
+			} else if rand.Intn(3) == 1 {
+				grid[i][j] = "|"
+			} else if rand.Intn(3) == 2 {
+				grid[i][j] = "__"
+			}
 		}
 	}
-	census(&grid)
-	fmt.Println(grid)
-
 }
 
-func census(grid *[6][6]int) {
-	grid[0][1] = 100
+// func census(grid *[6][6]int) {
+// 	grid[0][1] = 100
 
-}
+// }
