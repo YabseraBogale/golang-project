@@ -11,7 +11,7 @@ app =Flask(__name__)
 
 @app.route("/")
 def index():
-    return high["vulnerabilities"][1999]['cve'][0]['value']
+    return high["vulnerabilities"][1999]['cve']['descriptions'][0]['value']
 
 
 if __name__=="__main__":
