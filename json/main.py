@@ -9,10 +9,15 @@ def Data(data):
     attackComplexity=data["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['attackComplexity']
     baseScore=data["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['baseScore']
     return {"year":year,"vulnerabilities":vulnerabilities,'attackComplexity':attackComplexity,"score":baseScore}
-high = pd.read_json("high.json")
+
+## maxlength of high.json descriptions is 308
+## maxlength of critcal.json descriptions is 255
+## maxlength of windows.json descriptions is 332
+
+high= pd.read_json("windows.json")
 
 
-maxLength=0
+maxLength=308
 for i in range(0,2000):
     if len(high["vulnerabilities"][i]['cve']['descriptions'][0]['value'])>maxLength:
         maxLength=len(high["vulnerabilities"][199]['cve']['descriptions'][0]['value'])
