@@ -11,4 +11,10 @@ def Data(data):
     return {"year":year,"vulnerabilities":vulnerabilities,'attackComplexity':attackComplexity,"score":baseScore}
 high = pd.read_json("high.json")
 
-pprint(high["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['baseScore'])
+
+maxLength=0
+for i in range(0,2000):
+    if len(high["vulnerabilities"][i]['cve']['descriptions'][0]['value'])>maxLength:
+        maxLength=len(high["vulnerabilities"][199]['cve']['descriptions'][0]['value'])
+
+print(maxLength)
