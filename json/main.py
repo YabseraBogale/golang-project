@@ -7,7 +7,8 @@ def Data(data):
     year=data["vulnerabilities"][1999]['cve']['lastModified'].split('T')[0].split('-')[0]
     vulnerabilities=data["vulnerabilities"][199]['cve']['descriptions'][0]['value']
     attackComplexity=data["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['attackComplexity']
-    return {"year":year,"vulnerabilities":vulnerabilities,'attackComplexity':attackComplexity}
+    baseScore=data["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['baseScore']
+    return {"year":year,"vulnerabilities":vulnerabilities,'attackComplexity':attackComplexity,"score":baseScore}
 high = pd.read_json("high.json")
 
-pprint(high["vulnerabilities"][199]['cve'])
+pprint(high["vulnerabilities"][199]['cve']['metrics']['cvssMetricV31'][0]['cvssData']['baseScore'])
