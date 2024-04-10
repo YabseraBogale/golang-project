@@ -44,10 +44,16 @@ def makeDabase(data):
 ## maxlength of critcal.json descriptions is 255
 ## maxlength of windows.json descriptions is 332
 
-#high=pd.read_json("high.json")
+high=pd.read_json("windows.json")
+# count=0
+# for i in range(0,2000):
+#     if str(high["vulnerabilities"][i]['cve']['metrics']).find('cvssMetricV3')>0:
+#         count+=1
+    
+pprint(high["vulnerabilities"][2]['cve']['metrics']['cvssMetricV2'])
 
-#print(high["vulnerabilities"][452]['cve']['metrics']['cvssMetricV30'][0]['cvssData']['attackComplexity'])
+# print(count)
 
-for i in range(0,2000):
-    data=Data("high",i)
-    print(makeDabase(data))
+# for i in range(0,2000):
+#     data=Data("windows",i)
+#     print(makeDabase(data))
