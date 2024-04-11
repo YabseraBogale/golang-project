@@ -21,29 +21,38 @@ def Data(name,i):
     return {"year":year,"vulnerabilities":vulnerabilities,'attackComplexity':attackComplexity,"score":baseScore}
    
     
-def makeDabase(data):
+def makeDabase():
     try:
         statment="""
-            create table if not exists vulnerabilities(
-                vulnerability varchar(332) not null,
-                year int not null,
-                attackcomplexity varchar(10) not null,
-                baseScore varchar(10) not null
-            );
+            create table Data(
+            id int not null primary key,
+            vulnerability varchar(308) not null,
+            year int not null,
+            attackComplexity varchar(4) not null,
+            baseScore int not null
+        )
         """
-        connection=sqlite3.Connection("vulnerabilities.db")
+        connection=sqlite3.Connection("data.db")
         pointer=connection.cursor()
         pointer.execute(statment)
         connection.commit()
-        statment="insert into vulnerabilities(vulnerability,year,attackcomplexity,baseScore) values(?,?,?,?)"
-        pointer.execute(statment,(data["vulnerabilities"],data["year"],data["attackComplexity"],data["score"],))
-        connection.commit()
-        return i
+        return "Done"    
     except Exception as e:
         return e
 
-
+def Insert(Data,i):
+    try:
+        statment="insert into Data(id,vulnerability,year,attackComplexity,baseScore) values(?,?,?,?,?)"
+        connection=sqlite3.Connection("data.db")
+        pointer=connection.cursor()
+        pointer.execute(statment,i,Data["vulnerabilities"],Data["year"],Data["attackComplexity"],Data["score"])
+        connection.commit()
+        return "Done"
+    except Exception as e:
+        return e
+      
 ## maxlength of high.json descriptions is 308
 ## maxlength of critcal.json descriptions is 255
 
+print(makeDabase())
 

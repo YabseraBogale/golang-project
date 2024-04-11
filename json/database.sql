@@ -1,7 +1,7 @@
-create table vulnerabilities(
-    id int not null primary key,
-    vulnerability varchar(332) not null,
-    year varchar(4) not null,
-    attackComplexity varchar(10) not null,
-    baseScore varchar(10) not null
-)
+create table Data(
+            id int not null primary key
+            vulnerability varchar(308) not null,
+            year int not null,
+            attackComplexity varchar(4) not null,
+            baseScore int not null
+            )
