@@ -1,5 +1,6 @@
 package main
 
+// how is go slow here ? maybe 10000
 // python for 100
 
 // real    0m0.078s
