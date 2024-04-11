@@ -45,14 +45,14 @@ def Insert(Data,i):
         statment="insert into Data(id,vulnerability,year,attackComplexity,baseScore) values(?,?,?,?,?)"
         connection=sqlite3.Connection("data.db")
         pointer=connection.cursor()
-        pointer.execute(statment,i,Data["vulnerabilities"],Data["year"],Data["attackComplexity"],Data["score"])
+        pointer.execute(statment,(i,Data["vulnerabilities"],Data["year"],Data["attackComplexity"],Data["score"],))
         connection.commit()
-        return "Done"
+        return i
     except Exception as e:
         return e
       
 ## maxlength of high.json descriptions is 308
 ## maxlength of critcal.json descriptions is 255
 
-print(makeDabase())
+
 
