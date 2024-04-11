@@ -4,6 +4,9 @@ import pandas as pd
 
 import sqlite3
 
+
+
+
 def Data(name,i):
       
     data= pd.read_json(f"{name}.json")
