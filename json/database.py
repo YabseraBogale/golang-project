@@ -1,4 +1,6 @@
+from random import randint
 import sqlite3
+from pprint import pprint
 
 class Database():
     
@@ -9,5 +11,10 @@ class Database():
     def fetch(self):
         statment="select * from vulnerabilities"
         self.pointer.execute(statment)
+        result=self.pointer.fetchall()
+        return result[randint(0,len(result))]
     
-    
+
+
+test=Database()
+pprint(test.fetch())
