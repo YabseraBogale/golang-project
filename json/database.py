@@ -41,6 +41,11 @@ real    0m1.781s
 user    0m1.448s
 sys     0m0.411s
 
+python3 for 1000
+real    0m1.366s
+user    0m0.661s
+sys     0m0.193s
+
 """
 class Database():
     def __init__(self) -> None:
