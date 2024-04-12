@@ -69,8 +69,3 @@ class Database():
         result=self.pointer.fetchone()
         return result
     
-test=Database()
-# for i in range(0,1000):
-#     pprint(test.fetch())
-
-pprint(test.fetch())
