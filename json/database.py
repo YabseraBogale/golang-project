@@ -46,6 +46,12 @@ real    0m1.366s
 user    0m0.661s
 sys     0m0.193s
 
+golang 1.22 for 1000
+
+real    0m3.796s
+user    0m2.249s
+sys     0m0.948s
+
 """
 class Database():
     def __init__(self) -> None:
