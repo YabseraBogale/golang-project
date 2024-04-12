@@ -1,6 +1,6 @@
 from random import randint
 import sqlite3
-from pprint import pprint
+
 """
 on old hardware
 python for 100
