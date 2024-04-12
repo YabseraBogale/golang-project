@@ -54,5 +54,5 @@ class Database():
         return result
     
 test=Database()
-for i in range(0,100):
+for i in range(0,1000):
     pprint(test.fetch())
