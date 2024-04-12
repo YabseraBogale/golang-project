@@ -8,18 +8,23 @@
 
 .crycle{
     display: flex;
-    background-color: white;
+    background-color: red;
     flex-direction: column;
-    border: solid 18px white;
+    border: solid 18px red;
     border-radius: 50px;
     margin: auto;
     padding: 7px;
     margin-left: 50%;
     margin-right: 50%;
+    
 }
 
 .point{
     border: solid px white;
     border-radius: 2px;
-    background-color: red;
+    background-color: white;
+}
+
+.impl{
+    color:red;
 }

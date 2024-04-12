@@ -16,3 +16,10 @@ point.animate(
         iterations: Infinity,
       },
 );
+
+let low=document.getElementsByTagName("b");
+if (low[3].innerText=="LOW"){
+    low[3].style.color="green"
+} else{
+    low[3].style.color="red"
+}
