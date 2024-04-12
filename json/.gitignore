@@ -3,3 +3,4 @@ critcal.json
 windows.json
 /env/
 ./main
+/__pycache__/
