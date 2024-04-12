@@ -52,6 +52,11 @@ real    0m3.796s
 user    0m2.249s
 sys     0m0.948s
 
+even with go build it is slow what the hell
+real    0m2.170s
+user    0m0.910s
+sys     0m0.529s
+
 """
 class Database():
     def __init__(self) -> None:
