@@ -69,3 +69,6 @@ class Database():
         result=self.pointer.fetchone()
         return result
     
+test=Database()
+
+pprint(test.fetch())
