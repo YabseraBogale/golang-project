@@ -35,20 +35,19 @@ import (
 )
 
 func main() {
-	count := 1000
-	for i := 0; i < count; i++ {
-		db, _ := sql.Open("sqlite3", "data.db")
-		defer db.Close()
-		statment := "select * from data where id=" + strconv.Itoa(rand.Intn(4000))
-		row, _ := db.Query(statment)
-		for row.Next() {
-			var id int
-			var year int
-			var vulnerability string
-			var attackComplexity string
-			var baseScore float32
-			row.Scan(&id, &vulnerability, &year, &attackComplexity, &baseScore)
-			fmt.Println(id, vulnerability, year, attackComplexity, baseScore)
-		}
+
+	db, _ := sql.Open("sqlite3", "data.db")
+	defer db.Close()
+	statment := "select * from data where id=" + strconv.Itoa(rand.Intn(4000))
+	row, _ := db.Query(statment)
+	for row.Next() {
+		var id int
+		var year int
+		var vulnerability string
+		var attackComplexity string
+		var baseScore float32
+		row.Scan(&id, &vulnerability, &year, &attackComplexity, &baseScore)
+		fmt.Println(id, vulnerability, year, attackComplexity, baseScore)
 	}
+
 }
