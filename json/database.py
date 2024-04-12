@@ -2,6 +2,7 @@ from random import randint
 import sqlite3
 from pprint import pprint
 """
+on old hardware
 python for 100
 
 real    0m0.078s
@@ -27,6 +28,13 @@ real    0m0.866s
 user    0m0.662s
 sys     0m0.250s
 
+on new hard in the last 10 years
+
+python3 for 100
+real    0m0.342s
+user    0m0.202s
+sys     0m0.051s
+
 """
 class Database():
     def __init__(self) -> None:
@@ -40,5 +48,5 @@ class Database():
         return result
     
 test=Database()
-for i in range(0,1000):
+for i in range(0,100):
     pprint(test.fetch())
