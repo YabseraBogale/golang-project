@@ -35,7 +35,7 @@ import (
 )
 
 func main() {
-	count := 100
+	count := 1000
 	for i := 0; i < count; i++ {
 		db, _ := sql.Open("sqlite3", "data.db")
 		defer db.Close()
