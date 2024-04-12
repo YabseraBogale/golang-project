@@ -6,12 +6,20 @@
     padding: 3px;
 }
 
-.main{
+.crycle{
     display: flex;
+    background-color: white;
     flex-direction: column;
-    border: solid 2px white;
-    border-radius: 3px;
+    border: solid 18px white;
+    border-radius: 50px;
     margin: auto;
+    padding: 7px;
     margin-left: 50%;
     margin-right: 50%;
+}
+
+.point{
+    border: solid px white;
+    border-radius: 2px;
+    background-color: red;
 }

@@ -1,5 +1,18 @@
-const main=document.querySelector("main")
+let point=document.querySelector(".point")
 
-if(main){
-    main.setAttribute("color","rgb(34,34,34)")
-}
+
+point.animate(
+    [
+        // keyframes
+        { transform: "translateY(-20px)" },
+        { transform: "translateY(20px)" },
+        { transform: "translateX(20px)" },
+        { transform: "translateX(-20px)" },
+        { transform: "translateX(20px)" },
+      ],
+      {
+        // timing options
+        duration: 1000,
+        iterations: Infinity,
+      },
+);
