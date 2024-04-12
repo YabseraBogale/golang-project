@@ -9,7 +9,7 @@ real    0m0.078s
 user    0m0.075s
 sys     0m0.004s
 
-golang for 100
+golang 1.22 for 100
 
 real    0m0.467s
 user    0m0.417s
@@ -31,9 +31,15 @@ sys     0m0.250s
 on new hard in the last 10 years
 
 python3 for 100
+
 real    0m0.342s
 user    0m0.202s
 sys     0m0.051s
+
+golang 1.22 for 100
+real    0m1.781s
+user    0m1.448s
+sys     0m0.411s
 
 """
 class Database():
