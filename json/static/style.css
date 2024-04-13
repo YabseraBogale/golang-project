@@ -18,6 +18,11 @@
     margin-right: 50%;
     
 }
+button{
+    margin: auto;
+    margin-left: 50%;
+    margin-right: 50%;
+}
 
 .point{
     border: solid 1px black;
