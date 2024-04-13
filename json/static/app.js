@@ -23,3 +23,8 @@ if (low[3].innerText=="LOW"){
 } else{
     low[3].style.color="red"
 }
+
+
+function Reload(){
+  location.reload()
+}
