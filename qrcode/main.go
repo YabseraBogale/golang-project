@@ -17,7 +17,7 @@ func main() {
 	wg.Add(len(urls))
 	for i, url := range urls {
 		url := url
-		i := i
+		i := i+1
 		go func() {
 			defer wg.Done()
 			generateQR(i, url)
