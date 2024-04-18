@@ -1,3 +1,11 @@
-import segno
+from flask import Flask,url_for
 
-segno.make_qr("Hello, World").save("hello world.png",scale=10)
+app=FLask(__name__)
+
+
+@spp.route('/')
+def index():
+    return "hello world"
+
+if __name__=="__main__":
+    app.run(debug=True)
