@@ -1,6 +1,8 @@
 package main
 
-import "net"
+import (
+	"net"
+)
 
 func main() {
 	// go to make use ip resolver
@@ -8,6 +10,6 @@ func main() {
 	if err != nil {
 
 	}
-	println(ip.String())
+	println(" ip" + ip.String())
 
 }
