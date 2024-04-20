@@ -10,6 +10,6 @@ func main() {
 	if err != nil {
 
 	}
-	println(" ip" + ip.String())
+	println("ip: " + ip.String())
 
 }
