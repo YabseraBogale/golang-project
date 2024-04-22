@@ -8,6 +8,7 @@ func main() {
 	if err != nil {
 
 	}
+// how to use ipaddress to find or make my own version of shodan
 	println(ip.String())
 
 }
