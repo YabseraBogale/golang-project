@@ -6,9 +6,10 @@ import (
 
 func main() {
 	// go to make use ip resolver
-	ip, err := net.ResolveIPAddr("ip", "bbc.com")
+	ip, err := net.Dial("ip4", "192.0.2.1")
 	if err != nil {
 
 	}
+	println(ip.LocalAddr().String())
 
 }
