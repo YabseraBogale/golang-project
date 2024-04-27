@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// fucking templ vscode ext doesn't work
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
