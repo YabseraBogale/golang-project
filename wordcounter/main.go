@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"strconv"
 )
 
 func main() {
@@ -11,7 +12,7 @@ func main() {
 		log.Fatalln(err)
 	}
 	for _, i := range file {
-		println(i)
+		println(strconv.Itoa(i))
 	}
 
 }
