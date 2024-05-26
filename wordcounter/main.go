@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"log"
 	"os"
 )
@@ -10,6 +11,12 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	print(len(file))
+	_, kk, err := bufio.ScanBytes(file, true)
+	if err != nil {
+
+	}
+	for _, i := range kk {
+		println(i)
+	}
 
 }
