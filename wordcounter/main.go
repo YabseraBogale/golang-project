@@ -6,10 +6,12 @@ import (
 )
 
 func main() {
-	file, err := os.ReadFile("/main.go")
+	file, err := os.ReadFile("./main.go")
 	if err != nil {
 		log.Fatalln(err)
 	}
-	println(file)
+	for _, i := range file {
+		println(i)
+	}
 
 }
