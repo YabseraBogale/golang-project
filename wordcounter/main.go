@@ -1,15 +1,15 @@
 package main
 
 import (
-	"strconv"
+	"log"
+	"os"
 )
 
 func main() {
-	// file, err := os.ReadFile("./main.go")
-	// if err != nil {
-	// 	log.Fatalln(err)
-	// }
-
-	println(strconv.Atoi("/n"))
+	file, err := os.ReadFile("./main.go")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	print(len(file))
 
 }
