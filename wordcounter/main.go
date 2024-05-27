@@ -10,8 +10,13 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	wc := 0
 	for _, i := range file {
-		print(string(i))
+		if string(i) != " " {
+			wc += 1
+		} else if string(i) == "\n" {
+			println("found")
+		}
 	}
-
+	println(wc)
 }
