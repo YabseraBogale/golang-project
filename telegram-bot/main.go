@@ -11,7 +11,12 @@ func main() {
 	// Get Bot token from environment variables
 	botToken := os.Getenv("TOKEN")
 	bot := Init(botToken)
-	bot.GetUpdatesChan(tgbotapi.UpdateConfig{})
+
+	data := bot.GetUpdatesChan(tgbotapi.UpdateConfig{
+		Timeout:        2,
+		AllowedUpdates: []string{"ClarksonsFarmSeries"},
+	})
+	println(data)
 
 }
 
