@@ -10,10 +10,11 @@ import (
 func main() {
 	// Get Bot token from environment variables
 	botToken := os.Getenv("TOKEN")
+
 	bot := Init(botToken)
 
 	update := tgbotapi.NewUpdate(0)
-	update.AllowedUpdates = []string{"ClarksonsFarmSeries"}
+	//update.AllowedUpdates = []string{"ClarksonsFarmSeries"}
 	update.Timeout = 2
 	data := bot.GetUpdatesChan(update)
 	for i := range data {
