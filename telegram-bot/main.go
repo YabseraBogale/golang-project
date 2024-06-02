@@ -12,12 +12,17 @@ func main() {
 	botToken := os.Getenv("TOKEN")
 	bot := Init(botToken)
 
-	data := bot.GetUpdatesChan(tgbotapi.UpdateConfig{
-		Timeout:        2,
-		AllowedUpdates: []string{"ClarksonsFarmSeries"},
-	})
-	println(data)
-
+	update := tgbotapi.NewUpdate(0)
+	update.AllowedUpdates = []string{"ClarksonsFarmSeries"}
+	update.Timeout = 2
+	data := bot.GetUpdatesChan(update)
+	for i := range data {
+		if i.Message == nil {
+			continue
+		} else {
+			print(i.Message)
+		}
+	}
 }
 
 func Init(botToken string) *tgbotapi.BotAPI {
