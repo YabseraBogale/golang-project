@@ -1,36 +1,16 @@
 package main
 
-import (
-	"context"
-	"os"
-	"os/signal"
+import "github.com/NicoNex/echotron/v3"
 
-	"github.com/go-telegram/bot"
-	"github.com/go-telegram/bot/models"
-)
-
-// Send any text message to the bot after the bot has been started
+const token = "7494800477:AAHqxnL-SRC4s5DCupKC3-A5Vvl77DmErmQ"
 
 func main() {
-	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
-	defer cancel()
+	api := echotron.NewAPI(token)
 
-	opts := []bot.Option{
-		bot.WithDefaultHandler(handler),
+	for u := range echotron.PollingUpdates(token) {
+		if u.Message.Text == "/hello" {
+			api.SendMessage("Hello world", u.ChatID(), nil)
+		}
+
 	}
-
-	b, err := bot.New(os.Getenv("TOKEN"), opts...)
-	if err != nil {
-		panic(err)
-	}
-
-	b.Start(ctx)
-}
-
-func handler(ctx context.Context, b *bot.Bot, update *models.Update) {
-	b.SendMessage(ctx, &bot.SendMessageParams{
-		ChatID: update.Message.Chat.ID,
-		Text:   "Hello World",
-	})
-
 }
