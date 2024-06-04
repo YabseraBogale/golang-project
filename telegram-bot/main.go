@@ -1,36 +1,36 @@
 package main
 
 import (
-	"log"
+	"context"
 	"os"
+	"os/signal"
 
-	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
+	"github.com/go-telegram/bot"
+	"github.com/go-telegram/bot/models"
 )
 
+// Send any text message to the bot after the bot has been started
+
 func main() {
-	// Get Bot token from environment variables
-	botToken := os.Getenv("TOKEN")
+	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
+	defer cancel()
 
-	bot := Init(botToken)
-
-	update := tgbotapi.NewUpdate(0)
-	//update.AllowedUpdates = []string{"ClarksonsFarmSeries"}
-	update.Timeout = 2
-	data := bot.GetUpdatesChan(update)
-	for i := range data {
-		if i.Message == nil {
-			continue
-		} else {
-			print(i.Message)
-		}
+	opts := []bot.Option{
+		bot.WithDefaultHandler(handler),
 	}
+
+	b, err := bot.New(os.Getenv("TOKEN"), opts...)
+	if err != nil {
+		panic(err)
+	}
+
+	b.Start(ctx)
 }
 
-func Init(botToken string) *tgbotapi.BotAPI {
-	bot, err := tgbotapi.NewBotAPI(botToken)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	bot.Debug = true
-	return bot
+func handler(ctx context.Context, b *bot.Bot, update *models.Update) {
+	b.SendMessage(ctx, &bot.SendMessageParams{
+		ChatID: update.Message.Chat.ID,
+		Text:   "Hello World",
+	})
+
 }
