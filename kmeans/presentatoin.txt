@@ -1,6 +1,0 @@
-1) what is Clustering algorithm ?
-2) what is K-Means Clustering ?
-3) How K-Means Clustering works ? 
-4) How we collected the data ?
-5) show case and challenges we faced
-6) references
