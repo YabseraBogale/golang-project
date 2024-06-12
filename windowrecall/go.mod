@@ -2,7 +2,10 @@ module github.com/YabseraBogale/golang-project/windowrecall
 
 go 1.22.4
 
-require github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
+require (
+	github.com/kbinani/screenshot v0.0.0-20230812210009-b87d31814237
+	github.com/otiai10/gosseract/v2 v2.4.1
+)
 
 require (
 	github.com/gen2brain/shm v0.1.0 // indirect

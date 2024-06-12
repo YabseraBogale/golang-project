@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/kbinani/screenshot"
+	"github.com/otiai10/gosseract/v2"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
 	println(n)
 	for i := 0; i < n; i++ {
 		bounds := screenshot.GetDisplayBounds(i)
-
+		fmt.Println(bounds)
 		img, err := screenshot.CaptureRect(bounds)
 		if err != nil {
 			panic(err)
@@ -24,5 +25,10 @@ func main() {
 		png.Encode(file, img)
 
 		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
+		client := gosseract.NewClient()
+		defer client.Close()
+		client.SetImage(fileName)
+		text, _ := client.Text()
+		fmt.Println(text)
 	}
 }
