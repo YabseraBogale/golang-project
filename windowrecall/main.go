@@ -28,7 +28,7 @@ func main() {
 		client := gosseract.NewClient()
 		defer client.Close()
 
-		client.SetImage("screenshot.png")
+		client.SetImage(fileName)
 		text, _ := client.Text()
 		fmt.Println(text)
 
