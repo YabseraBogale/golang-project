@@ -27,8 +27,10 @@ func main() {
 		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
 		client := gosseract.NewClient()
 		defer client.Close()
-		client.SetImage(fileName)
+
+		client.SetImage("screenshot.png")
 		text, _ := client.Text()
 		fmt.Println(text)
+
 	}
 }
