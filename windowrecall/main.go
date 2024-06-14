@@ -12,7 +12,7 @@ import (
 func main() {
 	n := screenshot.NumActiveDisplays()
 	println(n)
-	for {
+	for i := 0; i < time.Now().Day(); i++ {
 		bounds := screenshot.GetDisplayBounds(1)
 		fmt.Println(bounds)
 		img, err := screenshot.CaptureRect(bounds)
