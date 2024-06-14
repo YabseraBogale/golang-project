@@ -4,33 +4,28 @@ import (
 	"fmt"
 	"image/png"
 	"os"
+	"time"
 
 	"github.com/kbinani/screenshot"
-	"github.com/otiai10/gosseract/v2"
 )
 
 func main() {
 	n := screenshot.NumActiveDisplays()
 	println(n)
-	for i := 0; i < n; i++ {
-		bounds := screenshot.GetDisplayBounds(i)
+	for {
+		bounds := screenshot.GetDisplayBounds(1)
 		fmt.Println(bounds)
 		img, err := screenshot.CaptureRect(bounds)
 		if err != nil {
 			panic(err)
 		}
-		fileName := fmt.Sprintf("%d_%dx%d.png", i, bounds.Dx(), bounds.Dy())
+		timeTaken := time.Now()
+		fileName := fmt.Sprintf("%d-%d-%d_%dx%d.png", timeTaken.Day(), timeTaken.Hour(), timeTaken.Minute(), bounds.Dx(), bounds.Dy())
+		time.Sleep(30 * 1000)
 		file, _ := os.Create(fileName)
 		defer file.Close()
 		png.Encode(file, img)
-
-		fmt.Printf("#%d : %v \"%s\"\n", i, bounds, fileName)
-		client := gosseract.NewClient()
-		defer client.Close()
-
-		client.SetImage(fileName)
-		text, _ := client.Text()
-		fmt.Println(text)
+		fmt.Printf(bounds.String(), fileName)
 
 	}
 }
