@@ -6,21 +6,40 @@ import (
 	"os"
 	"time"
 
-	"github.com/kbinani/screenshot"
+	"github.com/pato/screenshot"
 )
 
 func main() {
-
-	bounds := screenshot.GetDisplayBounds(1)
-	img, err := screenshot.CaptureRect(bounds)
-	if err != nil {
-		panic(err)
+here:
+	c1 := make(chan string, 1)
+	timeout := 3 * time.Second
+	go func() {
+		println(timeout)
+		xconn, err := screenshot.Setup()
+		if err != nil {
+			panic(err)
+		}
+		img, err := screenshot.CaptureScreen(xconn)
+		if err != nil {
+			panic(err)
+		}
+		filename := "./" + string(timeout) + ".png"
+		f, err := os.Create(filename)
+		if err != nil {
+			panic(err)
+		}
+		err = png.Encode(f, img)
+		if err != nil {
+			panic(err)
+		}
+		f.Close()
+		time.Sleep(timeout)
+		c1 <- "result 1"
+	}()
+	select {
+	case res := <-c1:
+		fmt.Println(res)
+	case <-time.After(1 * time.Second):
+		goto here
 	}
-	timeTaken := time.Now()
-	fileName := fmt.Sprintf("%d_%dx%d.png", timeTaken.Minute(), bounds.Dx(), bounds.Dy())
-	file, _ := os.Create(fileName)
-	defer file.Close()
-	png.Encode(file, img)
-	fmt.Println(bounds.String(), fileName)
-
 }
