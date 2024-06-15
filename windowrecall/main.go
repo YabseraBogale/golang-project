@@ -14,7 +14,6 @@ here:
 	c1 := make(chan string, 1)
 	timeout := 3 * time.Second
 	go func() {
-		println(timeout)
 		xconn, err := screenshot.Setup()
 		if err != nil {
 			panic(err)
