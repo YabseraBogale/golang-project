@@ -23,7 +23,7 @@ here:
 		if err != nil {
 			panic(err)
 		}
-		filename := "./" + string(timeout) + ".png"
+		filename := "./" + string(time.Now().Day()) + string(time.Now().Hour()) + ".png"
 		f, err := os.Create(filename)
 		if err != nil {
 			panic(err)
