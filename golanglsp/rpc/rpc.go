@@ -1,11 +1,14 @@
 package rpc
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
-func Encoding(msg string) ([]byte, error) {
+func EncodingMessage(msg any) string {
 	content, err := json.Marshal(msg)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
-	return content, nil
+	return fmt.Sprintf("Content-Length: %d\r\n\r\n%s", len(content), content)
 }
