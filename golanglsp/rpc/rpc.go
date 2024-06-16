@@ -37,3 +37,20 @@ func DecodingMessage(msg []byte) (string, []byte, error) {
 	return baseMessage.Method, content[:contentLength], nil
 
 }
+
+func Split(data []byte, _ bool) (advance int, token []byte, err error) {
+	header, content, found := bytes.Cut(data, []byte{'\r', '\n', '\r', '\n'})
+	if !found {
+		return 0, nil, nil
+	}
+	contentLengthByte := header[len("Content-Length: "):]
+	contentLength, err := strconv.Atoi(string(contentLengthByte))
+	if err != nil {
+		return 0, nil, err
+	}
+	if len(content) < contentLength {
+		return 0, nil, nil
+	}
+	total := 4 + contentLength
+	return total, data[:total], nil
+}
