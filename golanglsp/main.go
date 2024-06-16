@@ -15,11 +15,13 @@ func main() {
 	scanner.Split(rpc.Split)
 	for scanner.Scan() {
 		msg := scanner.Text()
-		handler(msg)
+		handler(logger, msg)
 	}
 }
 
-func handler(_ any) {}
+func handler(logger *log.Logger, msg any) {
+	logger.Println(msg)
+}
 func getLogger(filename string) *log.Logger {
 	logfile, err := os.OpenFile(filename, os.O_CREATE|os.O_TRUNC|os.O_WRONLY, 0666)
 	if err != nil {
