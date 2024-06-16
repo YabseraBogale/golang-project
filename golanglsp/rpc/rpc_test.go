@@ -22,7 +22,7 @@ func TestDecode(t *testing.T) {
 	expected := "Content-Length: 16\r\n\r\n{\"Testing\":true}"
 	contentLength, err := rpc.DecodingMessage([]byte(expected))
 	if err != nil {
-		t.Fatalf("Expected: %d Actual: %d", expected, contentLength)
+		t.Fatalf("Expected: %d Actual: %d", 16, contentLength)
 	}
 	if contentLength != 16 {
 		t.Fatalf("Expected: %d Actual: %d", 16, contentLength)
