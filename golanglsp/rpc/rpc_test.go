@@ -24,7 +24,7 @@ func TestDecode(t *testing.T) {
 	if err != nil {
 		t.Fatalf("Expected: %d Actual: %d", expected, contentLength)
 	}
-	if 16 != contentLength {
+	if contentLength != 16 {
 		t.Fatalf("Expected: %d Actual: %d", 16, contentLength)
 	}
 }
