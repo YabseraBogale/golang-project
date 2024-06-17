@@ -30,3 +30,19 @@ type ServerInfo struct {
 	Name    string `json:"name"`
 	Version string `json:"version"`
 }
+
+func NewInitilizeResponse(id int) InitilizeResponse {
+	return InitilizeResponse{
+		Response: Response{
+			ID:  &id,
+			RPC: "2.0",
+		},
+		Result: InitilizeResult{
+			Capabilities: ServerCapabilities{},
+			ServerInfo: ServerInfo{
+				Name:    "golanglsp",
+				Version: "0.0.0.0-beta-final",
+			},
+		},
+	}
+}
