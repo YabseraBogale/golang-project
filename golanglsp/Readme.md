@@ -4,4 +4,4 @@ golanglsp is an LSP server for Go. The Language Server Protocol allows any text 
 open terminal and then run
     ./main
 to load it to neo vim
-nvim -u 
+    nvim -u load_test_lsp.lua file_name
