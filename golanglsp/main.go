@@ -37,6 +37,11 @@ func handler(logger *log.Logger, method string, content []byte) {
 		logger.Printf("Connected to %s %s",
 			request.Params.ClientInfo.Name,
 			request.Params.ClientInfo.Version)
+		msg := lsp.NewInitilizeResponse(request.ID)
+		reply := rpc.EncodingMessage(msg)
+		writer := os.Stdout
+		writer.Write([]byte(reply))
+		logger.Print("Sent the reply")
 	}
 }
 func getLogger(filename string) *log.Logger {
