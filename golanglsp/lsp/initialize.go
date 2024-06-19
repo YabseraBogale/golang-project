@@ -20,7 +20,7 @@ type InitilizeResponse struct {
 }
 type InitilizeResult struct {
 	Capabilities ServerCapabilities `json:"capabilities"`
-	ServerInfo   ServerInfo         `json:"serverinfo"`
+	ServerInfo   ServerInfo         `json:"serverInfo"`
 }
 
 type ServerCapabilities struct {
