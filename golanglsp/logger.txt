@@ -1,3 +1,4 @@
-[golanglsp]2024/06/19 main.go:15: Hey i started
-[golanglsp]2024/06/19 main.go:30: Recvied message: initialize
-[golanglsp]2024/06/19 main.go:37: Connected to Neovim 0.11.0-dev
+[golanglsp]2024/06/20 main.go:15: Hey i started
+[golanglsp]2024/06/20 main.go:30: Recvied message: initialize
+[golanglsp]2024/06/20 main.go:37: Connected to Neovim 0.11.0-dev
+[golanglsp]2024/06/20 main.go:44: Sent the reply

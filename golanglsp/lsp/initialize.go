@@ -6,7 +6,7 @@ type InitilizeRequest struct {
 }
 
 type InitilizeRequestParams struct {
-	ClientInfo *ClientInfo `json:"clientinfo"`
+	ClientInfo *ClientInfo `json:"clientInfo"`
 }
 
 type ClientInfo struct {
@@ -24,6 +24,7 @@ type InitilizeResult struct {
 }
 
 type ServerCapabilities struct {
+	TextDocumentSync int `json:"textDocumentSync"`
 }
 
 type ServerInfo struct {
@@ -38,7 +39,9 @@ func NewInitilizeResponse(id int) InitilizeResponse {
 			RPC: "2.0",
 		},
 		Result: InitilizeResult{
-			Capabilities: ServerCapabilities{},
+			Capabilities: ServerCapabilities{
+				TextDocumentSync: 1,
+			},
 			ServerInfo: ServerInfo{
 				Name:    "golanglsp",
 				Version: "0.0.0.0-beta-final",
