@@ -11,6 +11,7 @@ import (
 )
 
 func main() {
+
 	logger := getLogger("./logger.txt")
 	logger.Println("Hey i started")
 	scanner := bufio.NewScanner(os.Stdin)
