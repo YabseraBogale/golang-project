@@ -1,0 +1,11 @@
+{
+        "servers":
+        {
+                "markdown":
+                {
+                        "command": ["/home/yabsera/Documents/github/golang-project/golanglsp/main"],
+                        "root": ".",
+		    "highlightingModeRegex": "^Markdown$"
+                }
+        }
+}
