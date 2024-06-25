@@ -4,7 +4,7 @@
                 "markdown":
                 {
                         "command": ["/home/yabsera/Documents/github/golang-project/golanglsp/main"],
-                        "root": ".",
+                        "root": "",
 		    "highlightingModeRegex": "^Markdown$"
                 }
         }
