@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"net/http"
 )
 
@@ -10,17 +9,16 @@ const (
 )
 
 func home(writer http.ResponseWriter, request *http.Request) {
-
-	fmt.Fprintln(writer, "home")
+	http.ServeFile(writer, request, "./templates/home.html")
 }
 func articles(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintln(writer, "articles")
+	http.ServeFile(writer, request, "./templates/articles.html")
 }
 func contact(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintln(writer, "contact")
+	http.ServeFile(writer, request, "./templates/contact.html")
 }
 func project(writer http.ResponseWriter, request *http.Request) {
-	fmt.Fprintln(writer, "project")
+	http.ServeFile(writer, request, "./templates/project.html")
 }
 
 func main() {
